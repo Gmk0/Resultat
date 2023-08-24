@@ -17,6 +17,11 @@ class EnseignantFactory extends Factory
     public function definition(): array
     {
         return [
+
+
+            'nom' => $this->faker->name,
+            'prenom' => $this->faker->lastName(),
+            'addrese' => $this->faker->address()
             //
         ];
     }

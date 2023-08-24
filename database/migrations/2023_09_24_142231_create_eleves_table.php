@@ -11,8 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
+        ['nom', 'postnom', 'prenom', 'date_naissance', 'lieu_naissance', 'sexe', 'addresse', 'id_classe'];
         Schema::create('eleves', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('postnom');
+            $table->string('prenom');
+            $table->string('date_naissance');
+            $table->string('lieu_naissance');
+            $table->enum('sexe', ['M', 'F']);
+            $table->string('addresse', 1000);
+            $table->foreignId('id_classe')->constrained();
+
+
+
+
+
+
             $table->timestamps();
         });
     }
