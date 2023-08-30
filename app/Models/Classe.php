@@ -20,8 +20,16 @@ class Classe extends Model
         return $this->belongsTo(Enseignant::class);
     }
 
-    public  function matieres(): HasMany
+    public function eleves()
     {
-        return $this->hasMany(Matiere::class);
+
+        return $this->hasMany(Eleve::class);
+    }
+
+    public  function matieres()
+    {
+        return $this->belongsToMany(Matiere::class, 'classe_matieres')
+            ->withPivot('note')
+            ->withTimestamps();
     }
 }

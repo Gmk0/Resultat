@@ -24,15 +24,12 @@ class MatiereResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('classe_id')
-                    ->required()
-                    ->options(Classe::all()->pluck('niveau', 'id'))
-                    ->native(false),
+
                 Forms\Components\TextInput::make('nom_matiere')
                     ->required(),
-                Forms\Components\TextInput::make('note')
-                    ->required()
-                    ->numeric(),
+
+
+
             ]);
     }
 
@@ -40,14 +37,13 @@ class MatiereResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('classe.niveau')
-                    ->numeric()
-                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('nom_matiere')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('note')
-                    ->numeric()
-                    ->sortable(),
+
+
+
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

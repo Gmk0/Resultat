@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resultat extends Model
+class note extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['eleve_id', 'matiere_id', 'note'];
+
+    protected $fillable = ['note', 'eleve_id', 'matiere_id'];
+
 
     public function eleve()
     {
+
         return $this->belongsTo(Eleve::class);
     }
 

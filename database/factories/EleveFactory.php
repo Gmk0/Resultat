@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Classe;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,16 @@ class EleveFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
-        ];
+        return
+            [
+                'nom' => $this->faker->lastName(),
+                'postnom' => $this->faker->firstName(),
+                'prenom' => $this->faker->firstName(),
+                'date_naissance' => $this->faker->date(),
+                'lieu_naissance' => $this->faker->city(),
+                'sexe' => $this->faker->randomElement(['M', 'F']),
+                'addresse' => $this->faker->address(),
+                'classe_id' => Classe::inRandomOrder()->first()->id,
+            ];
     }
 }

@@ -9,14 +9,16 @@ class Matiere extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom_matiere', 'note', 'classe_id'];
-
-    protected $cast = ['id_classe' => 'integer'];
+    protected $fillable = ['nom_matiere',];
 
 
 
-    public function classe()
+
+
+    public function classes()
     {
-        return $this->belongsTo(Classe::class);
+        return $this->belongsToMany(Classe::class, 'classe_matieres')
+            ->withPivot('note')
+            ->withTimestamps();
     }
 }

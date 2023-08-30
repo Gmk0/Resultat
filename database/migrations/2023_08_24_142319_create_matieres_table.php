@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('matieres', function (Blueprint $table) {
             $table->id();
             $table->string('nom_matiere');
-            $table->foreignId('classe_id')->constrained();
-            $table->float('note');
+
             $table->timestamps();
         });
     }
